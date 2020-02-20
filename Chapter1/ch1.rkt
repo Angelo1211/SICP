@@ -1,2 +1,5 @@
 #lang sicp
-(inc 42)
+(define size 2)
+size
+(* 10 size)
+
