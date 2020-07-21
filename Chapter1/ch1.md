@@ -44,13 +44,25 @@ Even with complex expressions the interpreter always operates in the same basic 
    Define is the languages simplest means of abstraction. The interpreter keeps track of the name-object pairs. This memory is called the environment (more precisely **global environment**) there can be more than one environment
 ## Evaluating Combinations
    To evaluate a combination yo umust to the following: 
-       1. Evaluate the subexpressions of the combination
-       2. Apply the procedure that is the leftmost subexpression (the operator) to the arguments that are the values of the other subexpressions.
+   1. Evaluate the subexpressions of the combination
+   2. Apply the procedure that is the leftmost subexpression (the operator) to the arguments that are the values of the other subexpressions.
+
    Notice tha to evaluate the main expression we need to have also managed to evaluate the subexpressions first. This highlights the recursive nature of this process. The main step needs to invoke itself to work!
+
    We can represent each combination as a tree, where each combination is a node with branches corresponding to operators and operands. Terminal nodes (nodes with no further branches) represent operators or numbers. This is a general kind of process known as **tree accumulation**. 
+
    There are also exceptions to the evaluation role above. For example, define is not an evaluation. It is what we call a **special form**. All special forms have their own evaluation rules. 
+
    Each kind of expresion constitute the syntax of the programming language.
-### Syntactic Sugar causes cancer of the Semicolon. lmao.
+#### Syntactic Sugar causes cancer of the Semicolon. lmao.
+
 ## Compound Procedures	
-	  
+
+Some of the elements that must appear on any powerful programming language:
+* Numbers and arithmetic operations are primitive dat aand procedures
+* Nesting of combinations provides a means of combining operations
+* Definitions that associate names with values provide a limited means of abstraction
+
+A more powerful 
+
 
