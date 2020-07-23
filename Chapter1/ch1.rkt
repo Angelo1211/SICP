@@ -1,5 +1,28 @@
 #lang sicp
 
+#|
+; Ex. 1.5
+(define (p) (p))
+
+(define (test x y)
+        (if (= x 0)
+         0
+         y))
+
+; This causes an infinite loop, which proves this is an applicative order execution
+; It causes and infinite loop because you have defined (p) to be equal to (p) which
+; In applicative order will get expanded ad infinitum while in normal-order evaluation
+; You'll actually expand to 0 before that
+(test 0 (p))
+
+; Ex. 1.4
+; We can change the operation applied to the data based on the result of the data!
+(define (a-plus-abs-b a b) 
+        ((if (> b 0) + -) a b))
+(a-plus-abs-b 1 2)  ; 3
+(a-plus-abs-b 1 -2) ; 3
+(a-plus-abs-b -1 -2)  ; 3
+
 ; Exercise 1.3
 (define (square x) (* x x))
 (define (sum-of-squares  x y) (+ (square x) (square y)))
@@ -11,23 +34,19 @@
 
 ; 13
 (sum-square-largest-pair 1 2 3)
-
 ; 109
 (sum-square-largest-pair 10 2 3)
-
 ; 0
 (sum-square-largest-pair 0 0 0)
-
 ; 13
 (sum-square-largest-pair 3 2 1)
-
 ; 5
 (sum-square-largest-pair 1 1 2)
-
 ; 5
 (sum-square-largest-pair 1 2 1)
+; 29
+(sum-square-largest-pair 2 1 5)
 
-#|
 ; Exercise 1.2
 (/ (+ 5 4 (- 2 (- 3 (+ 6 (/ 4 5)))))
    (* 3 (- 6 2) (- 2 7)))

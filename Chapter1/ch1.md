@@ -186,3 +186,37 @@ Interpreter evaluates the expressions <e1..n> one at a time in left to right ord
 Evaluates to true when expression evaluates to false, false otherwise.
 
 **or** and **and** are special forms, not procedures.
+
+### Example: Square Roots by Netwon's Method
+
+The difference between a function and a procedure is the difference between describing the properties of things and how to do things.
+* In mathematics we are normally concerned with **declarative** (what is) knowledge
+* In compute science we are normally concer with **imperative** (how to) knowledge
+
+```scheme
+(define (abs x) (if (< x 0) (- x) x))
+(define (square x) (* x x))
+
+(define (average x y) (/ (+ x y) 2))
+
+(define (improve guess x) (average guess (/ x guess)))
+
+(define error 0.01)
+(define (good-enough? guess x)
+        (< (abs (- (square guess) x)) error))
+
+(define (sqrt-iter guess x)
+        (if (good-enough? guess x)
+            guess
+            (sqrt-iter (improve guess x) x)))
+
+(define (sqrt x) (sqrt-iter 1.0 x))
+
+(sqrt (+ 100 37))
+```
+
+
+
+
+```scheme
+```
